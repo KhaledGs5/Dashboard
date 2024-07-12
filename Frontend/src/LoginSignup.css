@@ -1,0 +1,131 @@
+.signup-container {
+    display: flex;
+    height: 40%;
+    width : 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.imgBx {
+    flex: 1;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.imgBx {
+    flex: 1; /* Takes half the viewport width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBx img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.container {
+    flex: 1;
+    width: 100%; /* Ensure the image covers the whole div */
+    height: 100%;
+    object-fit: cover; /* Cover the entire area without distorting the image */
+}
+
+.container {
+    flex: 1; /* Takes the other half of the viewport width */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,255,0.1) ;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 60px;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 600; 
+    margin-bottom: 10px; 
+}
+
+.text {
+    font-size: 40px;
+    font-weight: 90;
+    margin-top: 0;
+} 
+
+.inputs {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 80px;
+    background: #eaeaea;
+    border-radius: 6px;
+}
+
+.input img {
+    margin: 0px 30px;
+    width: 25px; 
+    height: 25px; 
+}
+
+.input input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+    padding: 10px;
+}
+
+.have-account {
+    padding-left: 300px;
+    margin-top: 27px;
+    color: #797979;
+    font-size: 18px;
+}
+
+.have-account a {
+    color: #4c00b4;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 30px;
+}
+
+button.submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 59px;
+    color: #fff;
+    background: #4c00b4;
+    border-radius: 50px;
+    font-size: 19px;
+}
