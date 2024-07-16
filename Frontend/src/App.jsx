@@ -4,21 +4,19 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Navbar from './components/navbar';
 import Home from './components/home';
-import './index.css';
+import Reset from './components/resetpass';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <div class="cont">
-      <div className="container">
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
-      </Routes>
-      </div>
-      </div>  
+        <Route path="/reset" element={<Reset />} />
+      </Routes> 
     </Router>
   );
 }

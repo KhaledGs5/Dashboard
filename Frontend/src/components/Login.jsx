@@ -3,7 +3,8 @@ import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import email_icon from '../Pictures/email_icon.png';
 import pass_icon from '../Pictures/user_icon.png';
-import '../LoginSignup.css';
+import screen from '../Pictures/screen.jpg';
+import '../Styles/LoginSignup.css';
 
 const Login = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -23,10 +24,14 @@ const Login = () => {
             password
         };
         try {
-            const res = await axios.post('http://localhost:8000/account/login/', loginUser);
+            const res = await axios.get('http://localhost:8000/account/get/', {params: loginUser});
             console.log(res.data);
-            setLoggedIn(true); 
+            if (res.data) {
+                setLoggedIn(true); 
+                localStorage.setItem('user', JSON.stringify(res.data));
+              }
         } catch (err) {
+            alert("Wrong email or password");
             console.log(err);
         }
     };
@@ -34,14 +39,19 @@ const Login = () => {
     if (loggedIn) {
         return <Navigate to='/dashboard' />; 
     }
-
+        
     return (
+        <div className="signup-container">
+        <div className="imgBx">
+           <img src={screen} />
+        </div>
         <div className="container">
             <div className="header">
                 <h2>Login</h2>
                 <p className="text">Enter your credentials</p>
             </div>
             <form onSubmit={onSubmit}>
+                <div className="inputs">
                 <div className="input">
                     <img src={email_icon} alt="" />
                     <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
@@ -50,9 +60,14 @@ const Login = () => {
                     <img src={pass_icon} alt="" />
                     <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
                 </div>
-                <button type="submit">Login</button>
+                </div>
+                <div className="button-container">
+                <button type="submit" className="submit-button">Login</button>
+                </div>
+                <p className="have-account">Don't have an account ? <Link to='/signup'>Sign Up</Link></p>
+                <p className="have-account">Forget your password ? <Link to='/reset'>Reset Password</Link></p>
             </form>
-            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+        </div>
         </div>
     );
 };
