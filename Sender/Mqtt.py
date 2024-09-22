@@ -6,7 +6,8 @@ def generate_value():
 
 def on_connect(client, userdata, flags, rc):
     print(f"Connected with result code {rc}")
-    client.publish("test/status", 75, qos=0)
+    client.publish("Temperature", 75, qos=0)
+    client.publish("Vitesse",120, qos=0)
     client.disconnect()
 
 def main():

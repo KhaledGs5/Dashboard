@@ -226,16 +226,19 @@ function Dashboard() {
         fetchComponents();
     }, []);
 
-    const [value, setValue] = useState("");
 
-    const client = mqtt.connect("ws://localhost:4000");
+    const Tempclient = mqtt.connect("ws://localhost:4000");
+    const Vitclient = mqtt.connect("ws://localhost:4000");
 
-    client.subscribe("#");
+    Tempclient.subscribe("Temperature");
+    Vitclient.subscribe("Vitesse");
 
-    client.on("message", (topic, message) => {
+    Tempclient.on("message", (topic, message) => {
         console.log(topic, message.toString());
-        setValue(message.toString());
-      });
+    });
+    Vitclient.on("message", (topic, message) => {
+        console.log(topic, message.toString());
+    });
 
     return (
         <>
